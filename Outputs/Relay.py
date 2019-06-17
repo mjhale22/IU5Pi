@@ -1,0 +1,9 @@
+#Tutorial can be found at: https://tutorials-raspberrypi.com/raspberry-pi-control-relay-switch-via-gpio/
+
+import RPi.GPIO as GPIO
+GPIO.setmode(GPIO.BCM) # GPIO Numbers instead of board numbers
+ 
+RELAIS_1_GPIO = 17
+GPIO.setup(RELAIS_1_GPIO, GPIO.OUT) # GPIO Assign mode
+GPIO.output(RELAIS_1_GPIO, GPIO.LOW) # out
+GPIO.output(RELAIS_1_GPIO, GPIO.HIGH) # on
