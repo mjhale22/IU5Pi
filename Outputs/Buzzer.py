@@ -1,40 +1,18 @@
-#!/usr/bin/env python
+#Libraries
 import RPi.GPIO as GPIO
-import time
-
-#Set Buzzer Variable to GPIO Pin 11
-Buzzer = 11
-
-def setup(pin):
-	global BuzzerPin
-	BuzzerPin = pin
-	GPIO.setmode(GPIO.BOARD)       # Numbers GPIOs by physical location
-	GPIO.setup(BuzzerPin, GPIO.OUT)
-	GPIO.output(BuzzerPin, GPIO.HIGH)
-
-def on():
-	GPIO.output(BuzzerPin, GPIO.LOW)
-
-def off():
-	GPIO.output(BuzzerPin, GPIO.HIGH)
-
-def beep(x):
-	on()
-	time.sleep(x)
-	off()
-	time.sleep(x)
-
-def loop():
-	while True:
-		beep(0.5)
-
-def destroy():
-	GPIO.output(BuzzerPin, GPIO.HIGH)
-	GPIO.cleanup()                     # Release resource
-
-if __name__ == '__main__':     # Program start from here
-	setup(Buzzer)
-	try:
-		loop()
-	except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
-		destroy()
+from time import sleep
+#Disable warnings (optional)
+GPIO.setwarnings(False)
+#Select GPIO mode
+GPIO.setmode(GPIO.BCM)
+#Set buzzer - pin 23 as output
+buzzer=23 
+GPIO.setup(buzzer,GPIO.OUT)
+#Run forever loop
+while True:
+    GPIO.output(buzzer,GPIO.HIGH)
+    print ("Beep")
+    sleep(0.5) # Delay in seconds
+    GPIO.output(buzzer,GPIO.LOW)
+    print ("No Beep")
+    sleep(0.5)
