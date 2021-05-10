@@ -1,3 +1,5 @@
+Link to book: https://www.amazon.com/Adventures-Raspberry-Carrie-Anne-Philbin/dp/1118751256
+
 Adventure 1: You Have a Raspberry Pi. Now What?
 	-Setup tutorial video link page 11
 	-Using NOOBS for Recovery page 19
